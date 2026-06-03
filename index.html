@@ -12,6 +12,17 @@
   gtag('js', new Date());
   gtag('config', 'AW-18208148974');
 </script>
+<!-- Event snippet for conversion tracking -->
+<script>
+  function gtag_report_conversion() {
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18208148974/VFXgCJWrhrgcEO6bqepD',
+      'value': 1.0,
+      'currency': 'ARS'
+    });
+    return false;
+  }
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -888,6 +899,7 @@ async function sendForm() {
     });
 
     if (res.ok) {
+      gtag_report_conversion();
       document.getElementById('form-success').style.display = 'block';
       ['f-name','f-email','f-company','f-phone','f-message'].forEach(id => document.getElementById(id).value = '');
       document.getElementById('f-service').selectedIndex = 0;
